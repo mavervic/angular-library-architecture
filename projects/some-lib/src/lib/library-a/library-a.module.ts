@@ -10,6 +10,9 @@ import { AComponent } from './a/a.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    AComponent
   ]
 })
 export class LibraryAModule { }

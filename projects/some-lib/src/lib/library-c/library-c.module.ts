@@ -10,6 +10,9 @@ import { CComponent } from './c/c.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    CComponent
   ]
 })
 export class LibraryCModule { }
