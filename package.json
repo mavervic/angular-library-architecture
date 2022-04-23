@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "showcase": "ng build --named-chunks --output-hashing=none --project showcase"
   },
   "private": true,
   "dependencies": {

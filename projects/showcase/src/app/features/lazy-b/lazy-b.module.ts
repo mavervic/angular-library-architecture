@@ -13,6 +13,7 @@ import { LibraryBModule } from 'some-lib';
   imports: [
     CommonModule,
     LazyBRoutingModule,
+    LibraryBModule
   ]
 })
 export class LazyBModule { }

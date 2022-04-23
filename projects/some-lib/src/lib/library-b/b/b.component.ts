@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'lib-b',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./b.component.css']
 })
 export class BComponent implements OnInit {
+
+  date = moment.now();
 
   constructor() { }
 
