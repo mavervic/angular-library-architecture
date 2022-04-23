@@ -1,27 +1,46 @@
-# AngularLibraryArchitecture
+# Learing The Best Way To Architect Your Angular Libraries
+Ref: https://www.youtube.com/watch?v=2vHJ3_Om_gU
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+Create projects
+```
+ng g library some-lib
+ng g application showcase
+```
 
-## Development server
+Create modules in library
+```
+ng g m library-a
+ng g m library-b
+ng g m library-c
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+ng g c library-a/a
+ng g c library-b/b
+ng g c library-c/c
+```
 
-## Code scaffolding
+Create lazy modules in application
+```
+ng g m features/lazy-a --route a --module app.module.ts --project showcase
+ng g m features/lazy-b --route b --module app.module.ts --project showcase
+ng g m features/lazy-c --route c --module app.module.ts --project showcase
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+auto build whild library are saving
+```
+ng build --watch
+```
 
-## Build
+Show chunks
+```
+ng build --named-chunks --output-hashing=none --project showcase
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+# Other Best Practices - Imports
+* NEVER import modules which bring services / set up some processing, eg `BrowserModule`, `MyOrgTranslationsModule`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Such modules, if needed, will be provided by the consumer SPA (or inline library showcase SPA).
 
-## Running end-to-end tests
+* Modules which provide `.forChild()` usually work just fine.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Modules which only bring components / directives / pipes are OK.
