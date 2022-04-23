@@ -17,6 +17,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
+      "some-lib/*": [
+        "projects/some-lib/*"
+      ],
       "some-lib": [
         "dist/some-lib/some-lib",
         "dist/some-lib"
